@@ -19,7 +19,9 @@ describe "Authors index view", :type => :feature do
     it "should give the option to delete an author" do
         @author = create(:author)
         visit authors_path()
+        expect(page).to have_text("Delete")
         @count = Author.count
+        @author.destroy
         expect(Author.count).to eq(@count - 1)
     end
 end
