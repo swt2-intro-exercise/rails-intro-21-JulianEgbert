@@ -19,7 +19,7 @@ RSpec.describe Author, type: :model do
   end
 
   it "needs to be validated" do
-    author = Author.new(first_name: "Alan", last_name: "Touring")
+    author = Author.new(first_name: "Alan", last_name: "Touring", homepage: "http://wikipedia.org/Alan_Turing")
     expect(author).to be_valid
   end
 end
