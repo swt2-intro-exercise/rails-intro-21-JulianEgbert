@@ -15,5 +15,23 @@
   <%= @paper.year %>
 </p>
 
+<table>
+  <thead>
+    <tr>
+      <th>Authors</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @paper.authors.each do |author| %>
+      <tr>
+        <td><%= author.name %></td>
+        <td><%= link_to 'Show', author %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
 <%= link_to 'Edit', edit_paper_path(@paper) %> |
 <%= link_to 'Back', papers_path %>
