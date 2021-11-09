@@ -17,7 +17,7 @@ describe "New author page", type: :feature do
     visit new_author_path
     fill_in "author[first_name]", with: "Alan"
     fill_in "author[homepage]", with: "AlanTouring.com"
-    click_button "Save Author"
+    click_button "Create Author"
     expect(page).to have_selector("#error_explanation")
     expect(page).to have_text("error")
   end
@@ -25,7 +25,7 @@ describe "New author page", type: :feature do
   it "should highlight missing fields" do
     visit new_author_path
     fill_in "author[first_name]", with: "Alan"
-    click_button "Save Author"
+    click_button "Create Author"
     expect(page).to have_selector(".field_with_errors")
   end
 end
