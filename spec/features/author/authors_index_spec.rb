@@ -20,6 +20,10 @@ describe "Authors index view", :type => :feature do
         @author = create(:author)
         visit authors_path()
         expect(page).to have_text("Delete")
+    end
+
+    it "should delete an author" do
+        @author = create(:author)
         @count = Author.count
         @author.destroy
         expect(Author.count).to eq(@count - 1)

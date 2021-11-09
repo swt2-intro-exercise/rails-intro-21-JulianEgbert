@@ -40,4 +40,11 @@ RSpec.describe Paper, type: :model do
     @paper = create(:paper)
     expect(@paper.authors).to_not be_empty
   end
+
+  it "should delete a paper" do
+    @paper = create(:paper)
+    @count = Paper.count
+    @paper.destroy
+    expect(Paper.count).to eq(@count - 1)
+  end
 end
