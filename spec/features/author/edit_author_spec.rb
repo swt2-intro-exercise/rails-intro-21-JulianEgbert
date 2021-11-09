@@ -14,8 +14,8 @@ describe "Edit author page", type: :feature do
         fill_in "author[homepage]", with: "https://de.wikipedia.org/wiki/Albert_Einstein"
         click_button "Update Author"
         @author.reload
-        expect(author.first_name).to eq("Albert")
-        expect(author.last_name).to eq("Einstein")
-        expect(author.homepage).to eq("https://de.wikipedia.org/wiki/Albert_Einstein")
+        expect(@author.first_name).to eq("Albert")
+        expect(@author.last_name).to eq("Einstein")
+        expect(@author.homepage).to eq("https://de.wikipedia.org/wiki/Albert_Einstein")
     end
 end
