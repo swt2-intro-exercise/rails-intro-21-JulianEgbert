@@ -30,4 +30,14 @@ RSpec.describe Paper, type: :model do
     @paper = Paper.new(title: "Test", venue: "Testvenue", year: "HelloWorld")
     expect(@paper).to_not be_valid
   end
+
+  it "should have an empty list of authors" do
+    @paper = Paper.new(title: "Test", venue: "Testvenue", year: "HelloWorld")
+    expect(@paper.authors).to be_empty
+  end
+
+  it "should have a related author" do
+    @paper = create(:paper)
+    expect(@paper.authors).to_not be_empty
+  end
 end
