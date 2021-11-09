@@ -16,6 +16,7 @@ describe "New author page", type: :feature do
   it "should create an error when creating an invalid author" do
     visit new_author_path
     fill_in "author[first_name]", with: "Alan"
+    fill_in "author[homepage]", with: "AlanTouring.com"
     click_button "Save Author"
     expect(page).to have_selector("#error_explanation")
     expect(page).to have_text("error")
