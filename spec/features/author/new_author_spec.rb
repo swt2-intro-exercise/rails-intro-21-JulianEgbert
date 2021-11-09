@@ -12,4 +12,19 @@ describe "New author page", type: :feature do
     expect(page).to have_field('author[last_name]')
     expect(page).to have_field('author[homepage]')
   end
+
+  it "should create an error when creating an invalid author" do
+    visit new_author_path
+    fill_in "author[first_name]", with: "Alan"
+    click_button "Save Author"
+    expect(page).to have_selector("#error_explanation")
+    expect(page).to have_text("error")
+  end
+
+  it "should highlight missing fields" do
+    visit new_author_path
+    fill_in "author[first_name]", with: "Alan"
+    click_button "Save Author"
+    expect(page).to have_selector(".field_with_errors")
+  end
 end
